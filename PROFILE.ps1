@@ -1,15 +1,19 @@
-#Variable de entorno para mostrar la ip privada
+#Sets an environment variable to display the private IP address.
 $Env:MY_PRIVATE_IP = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -eq "Ethernet" }).IPAddress
 
-#Configuracion de ohMyPosh
+#Configuration of Oh My Posh for PowerShell, initializing the theme and loading additional modules.
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kushal.omp.json" | Invoke-Expression
 Import-Module Terminal-Icons
 Set-PSReadLineOption -predictionViewStyle ListView
 
-#Alias para bat
+# Creates an alias for cat to use bat instead.
 Set-Alias -Name cat -Value bat
 
-#Alias para fzf visualizar con bat
+# Creates an alias for terraform as tf.
+Set-Alias -Name tf -Value terraform
+
+
+#Defines a function to use fzf with a preview powered by bat, allowing you to view files in a nice format.
 function fzb {
     fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 }
