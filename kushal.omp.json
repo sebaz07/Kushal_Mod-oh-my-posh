@@ -5,6 +5,7 @@
     {
       "alignment": "left",
       "segments": [ 
+      "segments": [ 
         {
           "background": "#272727",
           "foreground": "#D6DEEB",
@@ -70,6 +71,7 @@
           "background": "#99908A",
           "template": " \ue7a8 {{ .Full }} "
         },
+        
         
         {
           "type": "command",
